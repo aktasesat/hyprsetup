@@ -1,10 +1,6 @@
-# HyprSetup
+### Quick Install (Use my dotfiles)
 
-Hyprland kurulum ve yapılandırma scripti.
-
-## Kurulum
-
-Projeyi ve gerekli alt modülleri (submodules) indirmek için aşağıdaki komutu kullanın:
+If you want to install my dotfiles directly, simply clone the repository with submodules and run the script.
 
 ```bash
 git clone --recurse-submodules https://github.com/aktasesat/hyprsetup.git
@@ -13,20 +9,34 @@ chmod +x hyprsetup.sh
 ./hyprsetup.sh
 ```
 
-Eğer yapılandırma dosyalarını (submodule) hemen indirmek istemiyorsanız normal `git clone` kullanabilirsiniz.
+---
 
-## Yapılandırma
+<details>
+<summary><strong>Advanced: Custom Configuration (Click to expand)</strong></summary>
 
-Kurulumu özelleştirmek için `env` dosyasını düzenleyebilirsiniz.
+If you want to use this script to manage **your own** dotfiles, follow these steps:
 
-### Path ve Config Ayarları
+#### 1. Clone the Repository
+You don't need the submodules if you are using your own configs.
+```bash
+git clone https://github.com/aktasesat/hyprsetup.git
+cd hyprsetup
+```
 
-`env` dosyasında aşağıdaki değişkenleri değiştirerek kurulumu yönetebilirsiniz:
+#### 2. Configure `env`
+Edit the `env` file to point to your configuration files and define what should be copied.
+*   **Source Path**: Change `source_path` to your config folder.
+*   **Items**: Add your config folders/files to `itemsA` or `itemsB`.
+    ```bash
+    itemsA=(foot hypr nvim rofi waybar)
+    ```
 
-*   **source_path**: Kaynak dosyaların bulunduğu dizin.
-*   **target_path**: Dosyaların kopyalanacağı hedef dizin (Örn: `~/.config/`).
-*   **Config Ekleme**: `itemsA` veya `itemsB` dizilerine kopyalanmasını istediğiniz yeni dosya veya klasör isimlerini ekleyebilirsiniz.
+#### 3. Update `packagelist.sh`
+Add or remove packages in `packagelist.sh` to match your requirements.
 
-### Güncelleme
+#### 4. Update `hyprsetup.sh`
+If you added new logic or variables in `env`, make sure to update `hyprsetup.sh` to handle them correctly.
 
-Eğer kendi yapılandırma dosyalarınızı eklediyseniz, `env` dosyasını güncellemeyi ve değişikliklerinizi kaydetmeyi unutmayın.
+> **Note:** Don't forget to update the `hyprsetup` script itself if you add new features or change the structure!
+
+</details>
