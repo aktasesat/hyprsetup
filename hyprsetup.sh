@@ -26,6 +26,7 @@ install_packages "Bluetooth" $bluetooth
 install_packages "Disk Utils" $diskutils
 install_packages "Developer Tools" $developertools
 install_packages "Shell" $shell
+install_packages "Wallpaper Manager" $wallpapermanager
 install_paru
 if [ -n "$additional" ]; then
   install_packages "Additional packages" $additional
