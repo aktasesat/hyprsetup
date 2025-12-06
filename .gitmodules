@@ -1,0 +1,3 @@
+[submodule "myhypr"]
+	path = myhypr
+	url = https://github.com/aktasesat/myhypr.git

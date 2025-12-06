@@ -2,33 +2,37 @@
 # 
 # Necessary for Hyprland installation.
 # Change packages as you wish
+
+# Declare associative array for package groups
+declare -A package_groups
+
 # repo:EXTRA
-compositor="hyprland"
-statusbar="waybar"
-applauncher="rofi-wayland"
-screenshot="grim slurp"
-copypaste="cliphist"
-notification="swaync"
-sound="pipewire pipewire-alsa pipewire-pulse  wireplumber pavucontrol"
-qtsupport="qt5-wayland qt6-wayland"
-auth="polkit-kde-agent"
-mediacontrol="playerctl brightnessctl"
-terminalemulator="foot"
-font="ttf-jetbrains-mono-nerd otf-font-awesome ttf-hack-nerd ttf-iosevka-nerd"
-filemanager="pcmanfm-qt file-roller"
-editor="neovim"
-media="imv mpv"
-bluetooth="bluez blueman"
-diskutils="udiskie"
-developertools="clang gdb"
-shell="fish"
-wallpapermanager="hyprpaper"
-browser="firefox vivaldi"
-desktop_portal="xdg-desktop-portal xdg-desktop-portal-hyprland xdg-utils "
-network="networkmanager"
+package_groups["Compositor"]="hyprland"
+package_groups["Statusbar"]="waybar"
+package_groups["App launcher"]="rofi-wayland"
+package_groups["Screenshot tools"]="grim slurp"
+package_groups["Copy/Paste tools"]="cliphist"
+package_groups["Notification"]="swaync"
+package_groups["Sound"]="pipewire pipewire-alsa pipewire-pulse wireplumber pavucontrol"
+package_groups["Qt support"]="qt5-wayland qt6-wayland"
+package_groups["Authentication"]="polkit-kde-agent"
+package_groups["Media control"]="playerctl brightnessctl"
+package_groups["Terminal"]="foot"
+package_groups["Fonts"]="ttf-jetbrains-mono-nerd otf-font-awesome ttf-hack-nerd ttf-iosevka-nerd"
+package_groups["File managers"]="pcmanfm-qt file-roller"
+package_groups["Editor"]="neovim"
+package_groups["Media players"]="imv mpv"
+package_groups["Bluetooth"]="bluez blueman"
+package_groups["Disk Utils"]="udiskie"
+package_groups["Developer Tools"]="clang gdb"
+package_groups["Shell"]="fish"
+package_groups["Wallpaper Manager"]="hyprpaper"
+package_groups["Browser"]="firefox vivaldi"
+package_groups["Desktop Portal"]="xdg-desktop-portal xdg-desktop-portal-hyprland xdg-utils"
+package_groups["Network"]="networkmanager"
 
+# repo:AUR (Suffix with _aur)
+package_groups["Wallpaper Manager_aur"]="waypaper"
+package_groups["Editor_aur"]="nvim-packer-git"
 
-#repo:AUR
-AUR="waypaper nvim-packer-git"
 additional=""
-

@@ -27,7 +27,6 @@ install_packages() { #Installs extra packages
 	local group_name="$1"
 	shift #Shifted all arguments to $1.
 	local packages="$@"
-	sudo pacman -Sy --noconfirm
 	echo -e "\033[1;34mInstalling $group_name packages: $packages\033[0m"
 
 	sudo pacman -S --noconfirm $packages
@@ -38,16 +37,17 @@ install_packages() { #Installs extra packages
   fi
 }
 
-install_aur_packages() { #Installs aur packages Usage: install_aur_packages $AUR . ~set your aur packages in packagelist~
+install_aur_packages() { #Installs aur packages Usage: install_aur_packages "Group Name" package1 package2 ...
+	local group_name="$1"
+	shift
 	local packages="$@"
-	sudo pacman -Sy --noconfirm
-	echo -e "\033[1;34mInstalling AUR packages: $packages\033[0m"
+	echo -e "\033[1;34mInstalling $group_name packages (AUR): $packages\033[0m"
 
 	paru -S --noconfirm $packages
 	if [ $? -ne 0 ]; then
-    echo -e "\033[0;31mWarning: Some AUR packages failed to install.\033[0m"
+    echo -e "\033[0;31mWarning: Some packages in $group_name (AUR) failed to install.\033[0m"
   else
-    echo -e "\033[0;32mAUR packages installed successfully.\033[0m"
+    echo -e "\033[0;32m$group_name packages (AUR) installed successfully.\033[0m"
   fi
 }
 
