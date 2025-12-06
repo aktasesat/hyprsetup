@@ -1,48 +1,75 @@
 # HyprSetup
 
-A simple and automated setup script for Arch Linux with Hyprland. This repository allows you to quickly install necessary packages and apply configuration files.
+[🇹🇷 Türkçe Versiyon](#-hyprsetup---türkçe)
+
+**HyprSetup** is an automated installation script designed to deploy my personal [Hyprland configuration (myhypr)](https://github.com/aktasesat/myhypr) on Arch Linux. It handles the installation of all necessary packages (including AUR packages via `paru`) and sets up the configuration files for a complete, ready-to-use desktop environment.
+
+## ✨ Features
+
+*   **Automated Installation:** Installs all required packages defined in the package list.
+*   **AUR Support:** Automatically installs and uses `paru` to fetch AUR packages.
+*   **Dotfiles Management:** Deploys configuration files for Hyprland, Waybar, Rofi, Fish, and more.
+*   **Customizable:** You can easily modify the package list or configuration paths.
 
 ## 🚀 Installation
 
-To get started, clone the repository with submodules to ensure you get the default configurations:
+To install the setup, you need to clone this repository along with its submodules. This ensures you get the latest configuration files from the `myhypr` repository.
 
-```bash
-git clone --recurse-submodules https://github.com/ifeelikeabit/hyprsetup.git
-cd hyprsetup
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone --recurse-submodules https://github.com/ifeelikeabit/hyprsetup.git
+    cd hyprsetup
+    ```
 
-Then, make the script executable and run it:
+2.  **Run the installation script:**
+    ```bash
+    chmod +x hyprsetup.sh
+    ./hyprsetup.sh
+    ```
 
-```bash
-chmod +x hyprsetup.sh
-./hyprsetup.sh
-```
+    The script will update your system, install `paru` (if not present), install all packages, and copy the config files.
 
 ## ⚙️ Configuration
 
-You can customize the setup to use your own configuration files or add extra packages.
+While this script is tailored for `myhypr`, it is built to be flexible:
 
-### Using Your Own Configs
+*   **`env`**: This file defines the source and target paths for configurations. You can modify `source_path` if you want to use your own dotfiles folder instead of `myhypr`.
+*   **`packagelist.sh`**: Contains the list of packages to be installed. You can add or remove packages here to suit your needs.
 
-1.  Open the `env` file.
-2.  Change the `source_path` variable to point to your configuration folder.
-    *   Default: `source_path="$(dirname "$(realpath "$0")")/myhypr"`
-    *   Example: `source_path="/path/to/your/configs"`
-3.  Update the `items` arrays (`itemsA`, `itemsB`, etc.) in `env` to list the files or directories you want to copy.
+---
 
-### Adding Packages
+# 🇹🇷 HyprSetup - Türkçe
 
-To add or remove packages, edit the `packagelist.sh` file. You can define new groups or modify existing ones.
+**HyprSetup**, kişisel [Hyprland yapılandırmamı (myhypr)](https://github.com/aktasesat/myhypr) Arch Linux üzerinde kurmak için tasarlanmış otomatik bir kurulum scriptidir. Gerekli tüm paketlerin (AUR dahil) kurulumunu yapar ve yapılandırma dosyalarını yerlerine kopyalayarak kullanıma hazır bir masaüstü ortamı sunar.
 
-## 📦 What it does
+## ✨ Özellikler
 
--   **Installs Packages**: Automatically installs packages defined in `packagelist.sh` using `pacman` and `paru` (for AUR).
--   **Copies Configs**: Copies configuration files from the source directory to your local config directory (`~/.config/` by default).
+*   **Otomatik Kurulum:** Paket listesinde tanımlanan tüm uygulamaları kurar.
+*   **AUR Desteği:** `paru` kullanarak AUR paketlerini otomatik olarak kurar.
+*   **Dotfiles Yönetimi:** Hyprland, Waybar, Rofi, Fish ve diğer araçlar için yapılandırma dosyalarını dağıtır.
+*   **Özelleştirilebilir:** Paket listesini veya yapılandırma yollarını kolayca değiştirebilirsiniz.
 
-## ℹ️ Default Configuration (myhypr)
+## 🚀 Kurulum
 
-By default, this setup uses the configurations from the [myhypr](https://github.com/aktasesat/myhypr) submodule. Check it out for details on the software stack and keybindings.
+Kurulumu başlatmak için bu depoyu alt modülleriyle (submodules) birlikte klonlamanız gerekir. Bu, `myhypr` deposundaki en güncel yapılandırma dosyalarına sahip olmanızı sağlar.
 
-## 📧 Contact
+1.  **Depoyu klonlayın:**
+    ```bash
+    git clone --recurse-submodules https://github.com/ifeelikeabit/hyprsetup.git
+    cd hyprsetup
+    ```
 
-Email: aktasesat80@gmail.com
+2.  **Kurulum scriptini çalıştırın:**
+    ```bash
+    chmod +x hyprsetup.sh
+    ./hyprsetup.sh
+    ```
+
+    Script sisteminizi güncelleyecek, gerekirse `paru`'yu kuracak, paketleri yükleyecek ve yapılandırma dosyalarını kopyalayacaktır.
+
+## ⚙️ Yapılandırma
+
+Bu script `myhypr` için özelleştirilmiş olsa da esnek bir yapıya sahiptir:
+
+*   **`env`**: Yapılandırma dosyalarının kaynak ve hedef yollarını belirler. `myhypr` yerine kendi dotfiles klasörünüzü kullanmak isterseniz `source_path` değişkenini buradan değiştirebilirsiniz.
+*   **`packagelist.sh`**: Kurulacak paketlerin listesini içerir. İhtiyaçlarınıza göre buraya paket ekleyip çıkarabilirsiniz.
