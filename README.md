@@ -1,56 +1,48 @@
-# hyprsetup
+# HyprSetup
 
-**What is this?**
+A simple and automated setup script for Arch Linux with Hyprland. This repository allows you to quickly install necessary packages and apply configuration files.
 
-After installing Arch Linux, instead of installing components one by one, you can quickly set up your system by defining them in the `packagelist.sh`, where you can prepare and organize everything in advance. Put in your cfg files or use my files.
-Then run the `hyprsetup.sh` script to apply the setup.(If you add own cfg files please take a look at hyprsetup.sh before execute )
- 
- **NOTE:** I plan to add a more user-friendly and robust structure soon, but for now, it works fine for me and anyone with a similar setup.
+## 🚀 Installation
 
-**USAGE**
+To get started, clone the repository with submodules to ensure you get the default configurations:
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/ifeelikeabit/hyprsetup.git
-    cd hyprsetup
-    ```
-
-
-2. **How to add your configuration files:**  
-  - Copy your configuration files and directories into `hyprsetup/cfg`, or set the path to your config folder in the `source_path` variable in the `env` file.  
-  - Add your folder or file names into the `items` variable.  
-  - In the `hyprsetup.sh` file, call the function as follows:  
 ```bash
-copycfg $source_path $target_path "${items[@]}"
-# You can copy any other config files or folders to different locations using this method.
-```
-3. **Add your packages into packagelist like this:**
-```bash
-#Just example
-compositor="hyprland swww xdg-desktop-portal-hyprland"
-statusbar="waybar"
-applauncher="rofi-wayland"
-screenshot="grim slurp"
+git clone --recurse-submodules https://github.com/ifeelikeabit/hyprsetup.git
+cd hyprsetup
 ```
 
-4. **Make the `hyprsetup.sh` script executable and run it:**
-    ```bash
-    chmod +x hyprsetup.sh
-    ./hyprsetup.sh
-    ```
+Then, make the script executable and run it:
 
-5. **Functions:**
 ```bash
-install_packages "group_name" $variable
-install_aur_packages $variable
-copycfg $source_path $target_path "${items[@]}"
-print 0 "message"  #first variable is color. -1-red 0-none 1-green 2-yellow 3-blue.
+chmod +x hyprsetup.sh
+./hyprsetup.sh
 ```
 
-**IMPORTANT**: These script files were created for my personal setup. If you know what you're doing, you can use them safely.
+## ⚙️ Configuration
 
-![Desktop](https://github.com/ifeelikeabit/hyprsetup/raw/master/desktop.jpg)
+You can customize the setup to use your own configuration files or add extra packages.
 
+### Using Your Own Configs
 
+1.  Open the `env` file.
+2.  Change the `source_path` variable to point to your configuration folder.
+    *   Default: `source_path="$(dirname "$(realpath "$0")")/myhypr"`
+    *   Example: `source_path="/path/to/your/configs"`
+3.  Update the `items` arrays (`itemsA`, `itemsB`, etc.) in `env` to list the files or directories you want to copy.
 
-- **Email:** aktasesat80@gmail.com
+### Adding Packages
+
+To add or remove packages, edit the `packagelist.sh` file. You can define new groups or modify existing ones.
+
+## 📦 What it does
+
+-   **Installs Packages**: Automatically installs packages defined in `packagelist.sh` using `pacman` and `paru` (for AUR).
+-   **Copies Configs**: Copies configuration files from the source directory to your local config directory (`~/.config/` by default).
+
+## ℹ️ Default Configuration (myhypr)
+
+By default, this setup uses the configurations from the [myhypr](https://github.com/aktasesat/myhypr) submodule. Check it out for details on the software stack and keybindings.
+
+## 📧 Contact
+
+Email: aktasesat80@gmail.com
