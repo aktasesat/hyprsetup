@@ -9,7 +9,7 @@ echo -e "\033[1;33mStarting package installation...\033[0m"
 # Update package database once
 echo -e "\033[1;34mUpdating package database...\033[0m"
 sudo pacman -Sy --noconfirm
-install_paru
+#install_paru
 # Install packages from the associative array
 for group in "${!package_groups[@]}"; do
     if [[ "$group" == *"_aur" ]]; then
@@ -30,9 +30,9 @@ fi
 print 1 "Starting config copy..."
 
 # 
-copycfg $source_path $target_path "${items[@]}"
-copycfg $source_path $HOME "${items2[@]}"
-copycfg $source_path $fish "${fishconfig[@]}"
+copycfg $myhypr $dotconfig_path "${dotconfigfiles[@]}"
+copycfg $myhypr $fish_path "${fishfiles[@]}"
+copycfg $myhypr $HOME "${homefiles[@]}"
 
 print 1 "Welcome to Hyprland... "
 print 1 "Just type 'Hyprland' to get started."

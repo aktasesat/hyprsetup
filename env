@@ -1,17 +1,19 @@
 #!/bin/bash
 
-#default: hyprsetup/cfg
+#default: hyprsetup/myhypr
 source_path="$(dirname "$(realpath "$0")")/myhypr"
+#yoursource_path=""
 
 #you can change your own config location or add new one
-target_path="$HOME/.config/"
-fish="$HOME/.config/fish/"
-desired_path=
+#destination paths
+dotconfig_path="$HOME/.config/" 
+fish_path="$HOME/.config/fish/"
+home_path=$HOME
 
-
-itemsA=(foot hypr nvim rofi waybar  mimeapps.list)
-itemsB=(.zshrc .oh-my-zsh)
-fishconfig=(config.fish)
+#files 
+dotconfigfiles=(foot hypr nvim rofi waybar  mimeapps.list)
+fishfiles=(config.fish)
+homefiles=(wallpapers)
 
 GREEN='\033[0;32m' 
 BLUE="\033[0;34m" 
