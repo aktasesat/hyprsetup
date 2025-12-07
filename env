@@ -1,16 +1,22 @@
 #!/bin/bash
+#EXAMPLE
+#sourcepath="$(dirname "$(realpath "$0")")/yourconfigfolder" 
+#or
+#sourcepath="/home/$USER/yourconfigfolder"
+#destination="$HOME/.config/" 
+#fileORfoldergroup=(hypr waybar mimeapp.list)
+#
 
-#default: hyprsetup/myhypr
-source_path="$(dirname "$(realpath "$0")")/myhypr"
-#yoursource_path=""
 
-#you can change your own config location or add new one
+#default source: hyprsetup/myhypr
+myhypr="$(dirname "$(realpath "$0")")/myhypr"
+
 #destination paths
 dotconfig_path="$HOME/.config/" 
 fish_path="$HOME/.config/fish/"
 home_path=$HOME
 
-#files 
+#files groups
 dotconfigfiles=(foot hypr nvim rofi waybar  mimeapps.list)
 fishfiles=(config.fish)
 homefiles=(wallpapers)

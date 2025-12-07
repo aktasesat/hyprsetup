@@ -15,6 +15,10 @@ print() { #Print msg with selected color code.
 	esac
 }
 
+update_database(){
+echo -e "\033[1;34mUpdating package database...\033[0m"
+sudo pacman -Sy --noconfirm
+}
 install_paru() { #Paru is aur package manager for arch linux
   sudo pacman -S --needed base-devel git --noconfirm
   git clone https://aur.archlinux.org/paru.git
@@ -37,7 +41,7 @@ install_packages() { #Installs extra packages
   fi
 }
 
-install_aur_packages() { #Installs aur packages Usage: install_aur_packages "Group Name" package1 package2 ...
+install_aur_packages() { 
 	local group_name="$1"
 	shift
 	local packages="$@"
